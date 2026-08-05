@@ -110,4 +110,12 @@ if (boutonNotifications) {
 
     });
 
+}console.log("Bouton notification chargé ❤️");
+
+const boutonNotifications = document.getElementById("activerNotifications");
+
+if (boutonNotifications) {
+    boutonNotifications.addEventListener("click", () => {
+        alert("Bouton détecté ❤️");
+    });
 }
