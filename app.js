@@ -118,17 +118,9 @@ if (boutonNotifications) {
 
     boutonNotifications.addEventListener("click", async () => {
 
-        if (window.OneSignal) {
+        alert("Bouton détecté ❤️");
 
-            await OneSignal.User.PushSubscription.optIn();
-
-            alert("❤️ Les petits mots sont activés ❤️");
-
-        } else {
-
-            alert("OneSignal n'est pas encore chargé.");
-
-        }
+        console.log("OneSignal =", window.OneSignal);
 
     });
 
