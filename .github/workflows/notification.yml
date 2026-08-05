@@ -22,7 +22,9 @@ jobs:
           --header "Authorization: Basic $ONESIGNAL_REST_API_KEY" \
           --data '{
             "app_id": "'"$ONESIGNAL_APP_ID"'",
-            "included_segments": ["Subscribed Users"],
+            "include_subscription_ids": [
+  "30999893-407b-41f8-a9b6-48d6a6b42507"
+]
             "headings": {
               "en": "❤️ Maïwenn"
             },
