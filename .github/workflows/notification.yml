@@ -7,7 +7,7 @@ jobs:
   envoyer-message:
     runs-on: ubuntu-latest
 
-       steps:
+    steps:
       - name: Récupérer le projet
         uses: actions/checkout@v4
 
@@ -29,8 +29,9 @@ jobs:
           MESSAGE=$(jq -r ".[] | select(.jour == $JOUR) | .texte" messages.json)
           TITRE=$(jq -r ".[] | select(.jour == $JOUR) | .titre" messages.json)
 
-          echo "texte=$MESSAGE" >> $GITHUB_OUTPUT
-          echo "titre=$TITRE" >> $GITHUB_OUTPUT
+          echo "texte=$MESSAGE" >> "$GITHUB_OUTPUT"
+          echo "titre=$TITRE" >> "$GITHUB_OUTPUT"
+
       - name: Envoyer notification OneSignal
         env:
           ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
