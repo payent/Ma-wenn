@@ -7,9 +7,10 @@ jobs:
   envoyer-message:
     runs-on: ubuntu-latest
 
-    steps:
+       steps:
       - name: Récupérer le projet
         uses: actions/checkout@v4
+
       - name: Préparer le message du jour
         id: message
         run: |
