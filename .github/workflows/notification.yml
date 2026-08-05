@@ -28,10 +28,15 @@ jobs:
           JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
 
           MESSAGE=$(jq -r ".[] | select(.jour == $JOUR) | .texte" messages.json)
-          TITRE=$(jq -r ".[] | select(.jour == $JOUR) | .titre" messages.json)
+          TITRE=$(jq -r ".[] | select(.jour == $JOUR) | .titre // \"❤️ Maïwenn\"" messages.json)
 
-          echo "texte=$MESSAGE" >> "$GITHUB_OUTPUT"
-          echo "titre=$TITRE" >> "$GITHUB_OUTPUT"
+          if [ -z "$MESSAGE" ] || [ "$MESSAGE" = "null" ]; then
+          echo "Aucun message trouvé pour le jour $JOUR"
+  exit 0
+fi
+
+echo "texte=$MESSAGE" >> $GITHUB_OUTPUT
+echo "titre=$TITRE" >> $GITHUB_OUTPUT
 
       - name: Envoyer notification OneSignal
         env:
