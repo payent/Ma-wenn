@@ -88,4 +88,26 @@ function creerCoeur() {
 }
 
 
-setInterval(creerCoeur, 900);
+setInterval(creerCoeur, 900);const boutonNotifications = document.getElementById("activerNotifications");
+
+if (boutonNotifications) {
+
+    boutonNotifications.addEventListener("click", async () => {
+
+        if ("Notification" in window) {
+
+            const permission = await Notification.requestPermission();
+
+            if (permission === "granted") {
+                alert("❤️ Les petits mots sont activés ❤️");
+            } else {
+                alert("Les notifications ne sont pas activées.");
+            }
+
+        } else {
+            alert("Ce téléphone ne supporte pas les notifications.");
+        }
+
+    });
+
+}

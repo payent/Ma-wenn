@@ -8,9 +8,14 @@
 <title>Maïwenn ❤️</title>
 
 <link rel="stylesheet" href="style.css">
-
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff6699">
 </head>
-
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+}
+</script>
 <body>
 
 <div class="hearts"></div>
@@ -24,7 +29,9 @@
     </p>
 
     <div class="message-box">
-
+<button id="activerNotifications">
+    ❤️ Activer mes petits mots ❤️
+</button>
         <div id="jour">
             Jour 1 ❤️
         </div>
