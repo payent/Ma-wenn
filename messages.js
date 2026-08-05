@@ -1823,3 +1823,6 @@ texte: "❤️ Jour 365 ❤️ Une année entière de petits mots pour toi. Merc
 }
 
 ];
+];
+
+module.exports = messages;
