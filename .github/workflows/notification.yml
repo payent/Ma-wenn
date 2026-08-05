@@ -14,7 +14,17 @@ jobs:
       - name: Préparer le message du jour
         id: message
         run: |
-         JOUR=$(date -d "today" +%j | sed 's/^0*//')
+         DATE_DEBUT="2026-08-06T09:30:00+02:00"
+
+MAINTENANT=$(date +%s)
+DEBUT=$(date -d "$DATE_DEBUT" +%s)
+
+if [ "$MAINTENANT" -lt "$DEBUT" ]; then
+  echo "Le cadeau n'a pas encore commencé"
+  exit 0
+fi
+
+JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
           
           MESSAGE=$(jq -r ".[] | select(.jour == $JOUR) | .texte" messages.json)
           TITRE=$(jq -r ".[] | select(.jour == $JOUR) | .titre" messages.json)
