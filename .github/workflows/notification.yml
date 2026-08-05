@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Récupérer le projet
         uses: actions/checkout@v4
-
-               - name: Préparer le message du jour
+      - name: Préparer le message du jour
         id: message
         run: |
           DATE_DEBUT="2026-08-06T09:30:00+02:00"
