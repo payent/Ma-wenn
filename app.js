@@ -110,18 +110,4 @@ if (boutonNotifications) {
 
     });
 
-}console.log("Bouton notification chargé ❤️");
-
-const boutonNotifications = document.getElementById("activerNotifications");
-
-if (boutonNotifications) {
-
-    boutonNotifications.addEventListener("click", async () => {
-
-        alert("Bouton détecté ❤️");
-
-        console.log("OneSignal =", window.OneSignal);
-
-    });
-
 }
