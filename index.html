@@ -14,7 +14,10 @@ OneSignalDeferred.push(async function(OneSignal) {
 
    await OneSignal.init({
     appId: "c26ae573-d60d-4034-9422-82a467428732",
-    serviceWorkerPath: "/Ma-wenn/OneSignalSDKWorker.js",
+    serviceWorkerPath: "Ma-wenn/OneSignalSDKWorker.js",
+    serviceWorkerParam: {
+        scope: "/Ma-wenn/"
+    },
     safari_web_id: "web.onesignal.auto.599df49f-4478-46e8-9089-3c95d63b63cf",
     notifyButton: {
         enable: true,
