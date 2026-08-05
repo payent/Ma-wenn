@@ -94,20 +94,10 @@ if (boutonNotifications) {
 
     boutonNotifications.addEventListener("click", async () => {
 
-        if ("Notification" in window) {
-
-            const permission = await Notification.requestPermission();
-
-            if (permission === "granted") {
-                alert("❤️ Les petits mots sont activés ❤️");
-            } else {
-                alert("Les notifications ne sont pas activées.");
-            }
-
-        } else {
-            alert("Ce téléphone ne supporte pas les notifications.");
-        }
+        alert("Bouton détecté ❤️");
 
     });
+
+}
 
 }
