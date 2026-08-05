@@ -1,6 +1,7 @@
 name: Notification Maïwenn ❤️
-
 on:
+  schedule:
+    - cron: "30 7 * * *"
   workflow_dispatch:
 
 jobs:
