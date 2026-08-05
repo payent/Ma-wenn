@@ -18,17 +18,16 @@ jobs:
             --url https://api.onesignal.com/notifications \
             --header "Content-Type: application/json" \
             --header "Authorization: Key $ONESIGNAL_REST_API_KEY" \
-                       --data '{
-              "app_id": "'"$ONESIGNAL_APP_ID"'",
-              "include_subscription_ids": [
-                "30999893-407b-41f8-a9b6-48d6a6b42507"
-              ],
-              "headings": {
-                "en": "❤️ Maïwenn"
-              },
-              "contents": {
-                "en": "Un petit mot rien que pour toi ❤️"
-           }
-           "chrome_web_icon": "https://payent.github.io/Ma-wenn/icon.png"
-            }'
-            
+                                --data '{
+            "app_id": "'"$ONESIGNAL_APP_ID"'",
+            "include_subscription_ids": [
+              "30999893-407b-41f8-a9b6-48d6a6b42507"
+            ],
+            "headings": {
+              "en": "❤️ Maïwenn"
+            },
+            "contents": {
+              "en": "Un petit mot rien que pour toi ❤️"
+            },
+            "chrome_web_icon": "https://payent.github.io/Ma-wenn/icon.png"
+          }'
