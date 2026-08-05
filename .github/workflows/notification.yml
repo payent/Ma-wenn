@@ -11,27 +11,26 @@ jobs:
       - name: Récupérer le projet
         uses: actions/checkout@v4
 
-      - name: Préparer le message du jour
+            - name: Préparer le message du jour
         id: message
         run: |
-         DATE_DEBUT="2026-08-06T09:30:00+02:00"
+          DATE_DEBUT="2026-08-06T09:30:00+02:00"
 
-MAINTENANT=$(date +%s)
-DEBUT=$(date -d "$DATE_DEBUT" +%s)
+          MAINTENANT=$(date +%s)
+          DEBUT=$(date -d "$DATE_DEBUT" +%s)
 
-if [ "$MAINTENANT" -lt "$DEBUT" ]; then
-  echo "Le cadeau n'a pas encore commencé"
-  exit 0
-fi
+          if [ "$MAINTENANT" -lt "$DEBUT" ]; then
+            echo "Le cadeau n'a pas encore commencé"
+            exit 0
+          fi
 
-JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
-          
+          JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
+
           MESSAGE=$(jq -r ".[] | select(.jour == $JOUR) | .texte" messages.json)
           TITRE=$(jq -r ".[] | select(.jour == $JOUR) | .titre" messages.json)
 
           echo "texte=$MESSAGE" >> $GITHUB_OUTPUT
           echo "titre=$TITRE" >> $GITHUB_OUTPUT
-
       - name: Envoyer notification OneSignal
         env:
           ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
