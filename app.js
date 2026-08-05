@@ -1,4 +1,3 @@
-alert("app.js démarre ❤️");
 const jourElement = document.getElementById("jour");
 const messageElement = document.getElementById("message");
 
