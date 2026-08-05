@@ -1,0 +1,250 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+    radial-gradient(circle at top, #5a1730, #12000a);
+
+    font-family: Georgia, serif;
+    color: white;
+
+    overflow: hidden;
+}
+
+
+.card {
+
+    width: 85%;
+    max-width: 420px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+    0 0 40px rgba(255, 0, 80, 0.35);
+
+}
+
+
+h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.subtitle {
+
+    font-size: 18px;
+
+    opacity: 0.9;
+
+}
+
+
+.message-box {
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.12);
+
+}
+
+
+#jour {
+
+    font-size: 18px;
+
+    color: #ffd1dc;
+
+}
+
+
+#message {
+
+    margin-top: 20px;
+
+    font-size: 24px;
+
+    line-height: 1.5;
+
+}
+
+
+.heart {
+
+    position: absolute;
+
+    font-size: 25px;
+
+    animation: monter 6s linear infinite;
+
+}
+
+
+@keyframes monter {
+
+    0% {
+
+        transform: translateY(100vh);
+
+        opacity: 0;
+
+    }
+
+
+    20% {
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        transform: translateY(-20vh);
+
+        opacity: 0;
+
+    }
+
+}.anniversaire-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 220, 230, 0.95);
+    border-radius: 20px;
+    font-size: 20px;
+    color: #b30059;
+    box-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
+    z-index: 1000;
+    animation: apparition 1s ease;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -30px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}.un-an {
+    animation: fondAnniversaire 3s infinite alternate;
+}
+
+@keyframes fondAnniversaire {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(1.15);
+    }
+}
+
+.un-an .anniversaire-message {
+    font-size: 26px;
+    animation: coeurAnniversaire 1.5s infinite alternate;
+}
+
+@keyframes coeurAnniversaire {
+    from {
+        transform: translateX(-50%) scale(1);
+    }
+    to {
+        transform: translateX(-50%) scale(1.08);
+    }
+}.message-un-an {
+    animation: coeurAnniversaire 1.5s infinite alternate;
+    font-size: 26px;
+}
+
+@keyframes coeurAnniversaire {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.un-an {
+    animation: fondAnniversaire 3s infinite alternate;
+}
+
+@keyframes fondAnniversaire {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(1.15);
+    }
+}.fleur {
+    position: fixed;
+    top: -50px;
+    font-size: 30px;
+    z-index: 2000;
+    animation: chuteFleur 6s linear infinite;
+}
+
+@keyframes chuteFleur {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.un-an {
+    animation: lumiereAmour 3s infinite alternate;
+}
+
+@keyframes lumiereAmour {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.15);
+    }
+}#activerNotifications {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ff6699;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#activerNotifications:active {
+    transform: scale(0.95);
+}
