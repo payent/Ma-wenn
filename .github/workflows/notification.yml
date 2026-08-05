@@ -28,5 +28,7 @@ jobs:
               },
               "contents": {
                 "en": "Un petit mot rien que pour toi ❤️"
-              }
+           }
+           "chrome_web_icon": "https://payent.github.io/Ma-wenn/icon.png"
             }'
+            
