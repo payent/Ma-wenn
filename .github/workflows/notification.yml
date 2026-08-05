@@ -1,8 +1,6 @@
 name: Notification Maïwenn ❤️
 
 on:
-  schedule:
-    - cron: "0 8 * * *"
   workflow_dispatch:
 
 jobs:
@@ -15,7 +13,7 @@ jobs:
           ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
 
-                      run: |
+        run: |
           curl --request POST \
             --url https://api.onesignal.com/notifications \
             --header "Content-Type: application/json" \
