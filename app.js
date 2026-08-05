@@ -1,3 +1,4 @@
+alert("app.js chargé ❤️");
 const jourElement = document.getElementById("jour");
 const messageElement = document.getElementById("message");
 
