@@ -115,7 +115,21 @@ if (boutonNotifications) {
 const boutonNotifications = document.getElementById("activerNotifications");
 
 if (boutonNotifications) {
-    boutonNotifications.addEventListener("click", () => {
-        alert("Bouton détecté ❤️");
+
+    boutonNotifications.addEventListener("click", async () => {
+
+        if (window.OneSignal) {
+
+            await OneSignal.User.PushSubscription.optIn();
+
+            alert("❤️ Les petits mots sont activés ❤️");
+
+        } else {
+
+            alert("OneSignal n'est pas encore chargé.");
+
+        }
+
     });
+
 }
