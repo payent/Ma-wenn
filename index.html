@@ -22,11 +22,13 @@ OneSignalDeferred.push(async function(OneSignal) {
     });
 
     console.log("Permission :", OneSignal.Notifications.permission);
-    console.log("Subscription ID :", OneSignal.User.PushSubscription.id);
+
+    OneSignal.User.PushSubscription.addEventListener("change", function(event) {
+        console.log("Nouvelle subscription :", event);
+    });
 
 });
 </script>
-
 <title>Maïwenn ❤️</title>
 
 <link rel="stylesheet" href="style.css">
