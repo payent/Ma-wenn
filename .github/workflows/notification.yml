@@ -14,7 +14,7 @@ jobs:
       - name: Préparer le message du jour
         id: message
         run: |
-          JOUR=$(date -d "today" +%j | sed 's/^0*//')
+          JOUR=1
           
           MESSAGE=$(jq -r ".[] | select(.jour == $JOUR) | .texte" messages.json)
           TITRE=$(jq -r ".[] | select(.jour == $JOUR) | .titre" messages.json)
