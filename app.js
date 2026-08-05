@@ -88,7 +88,9 @@ function creerCoeur() {
 }
 
 
-setInterval(creerCoeur, 900);const boutonNotifications = document.getElementById("activerNotifications");
+setInterval(creerCoeur, 900);
+
+const boutonNotifications = document.getElementById("activerNotifications");
 
 if (boutonNotifications) {
 
@@ -97,7 +99,5 @@ if (boutonNotifications) {
         alert("Bouton détecté ❤️");
 
     });
-
-}
 
 }
