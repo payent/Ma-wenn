@@ -1,4 +1,3 @@
-console.log("OneSignal =", window.OneSignal);
 const jourElement = document.getElementById("jour");
 const messageElement = document.getElementById("message");
 
