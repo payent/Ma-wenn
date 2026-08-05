@@ -15,20 +15,20 @@ jobs:
           ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
 
-               run: |
+                      run: |
           curl --request POST \
-          --url https://api.onesignal.com/notifications \
-          --header "Content-Type: application/json" \
-          --header "Authorization: Key $ONESIGNAL_REST_API_KEY" \
-          --data '{
-            "app_id": "'"$ONESIGNAL_APP_ID"'",
-            "include_subscription_ids": [
-              "30999893-407b-41f8-a9b6-48d6a6b42507"
-            ],
-            "headings": {
-              "fr": "❤️ Maïwenn"
-            },
-            "contents": {
-              "fr": "Un petit mot rien que pour toi ❤️"
-            }
-          }'
+            --url https://api.onesignal.com/notifications \
+            --header "Content-Type: application/json" \
+            --header "Authorization: Key $ONESIGNAL_REST_API_KEY" \
+            --data '{
+              "app_id": "'"$ONESIGNAL_APP_ID"'",
+              "include_subscription_ids": [
+                "30999893-407b-41f8-a9b6-48d6a6b42507"
+              ],
+              "headings": {
+                "fr": "❤️ Maïwenn"
+              },
+              "contents": {
+                "fr": "Un petit mot rien que pour toi ❤️"
+              }
+            }'
