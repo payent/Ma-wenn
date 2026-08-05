@@ -14,7 +14,7 @@ jobs:
       - name: Préparer le message du jour
         id: message
         run: |
-          DATE_DEBUT="2026-08-05T09:30:00+02:00"
+          DATE_DEBUT="2026-08-04T09:30:00+02:00"
 
           MAINTENANT=$(date +%s)
           DEBUT=$(date -d "$DATE_DEBUT" +%s)
