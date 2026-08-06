@@ -278,4 +278,9 @@ h1 {
 
     transform: scale(0.95);
 
+}.footer-love {
+    margin-top: 25px;
+    font-size: 14px;
+    opacity: 0.8;
+    font-style: italic;
 }
