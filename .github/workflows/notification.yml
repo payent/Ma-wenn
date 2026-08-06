@@ -19,7 +19,10 @@ jobs:
 
           MAINTENANT=$(date +%s)
           DEBUT=$(date -d "$DATE_DEBUT" +%s)
-
+          echo "Heure GitHub : $(date)"
+          echo "Début cadeau : $(date -d "$DATE_DEBUT")"
+          JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
+          echo "Jour calculé : $JOUR"
           if [ "$MAINTENANT" -lt "$DEBUT" ]; then
             echo "Le cadeau n'a pas encore commencé"
             exit 0
