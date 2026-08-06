@@ -20,6 +20,7 @@ jobs:
           DEBUT=$(date -d "$DATE_DEBUT" +%s)
           echo "Heure GitHub : $(date)"
           echo "Début cadeau : $(date -d "$DATE_DEBUT")"
+          echo "jour=$JOUR" >> "$GITHUB_OUTPUT"
           JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
           echo "Jour calculé : $JOUR"
 
@@ -44,14 +45,19 @@ jobs:
 
           echo "texte=$MESSAGE" >> "$GITHUB_OUTPUT"
           echo "titre=$TITRE" >> "$GITHUB_OUTPUT"
-
       - name: Envoyer notification OneSignal
         env:
-          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
-          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+          ONESIGNAL_APP_ID: ...
+          ONESIGNAL_REST_API_KEY: ...
 
         run: |
           curl --request POST \
+          ...
+
+
+      - name: Enregistrer le jour envoyé
+        run: |
+          echo "${{ steps.message.outputs.jour }}" > dernier_envoi.txt
             --url https://api.onesignal.com/notifications \
             --header "Content-Type: application/json" \
             --header "Authorization: Key $ONESIGNAL_REST_API_KEY" \
