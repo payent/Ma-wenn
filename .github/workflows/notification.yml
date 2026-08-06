@@ -22,6 +22,11 @@ jobs:
           echo "Début cadeau : $(date -d "$DATE_DEBUT")"
           JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
           echo "Jour calculé : $JOUR"
+
+          if [ -f dernier_envoi.txt ] && grep -q "$JOUR" dernier_envoi.txt; then
+          echo "Message du jour déjà envoyé"
+          exit 0
+          fi
           if [ "$MAINTENANT" -lt "$DEBUT" ]; then
             echo "Le cadeau n'a pas encore commencé"
             exit 0
