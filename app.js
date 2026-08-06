@@ -1,61 +1,39 @@
 const jourElement = document.getElementById("jour");
 const messageElement = document.getElementById("message");
 
-
-// Date de première ouverture
-
-let dateDepart = localStorage.getItem("dateDepart");
-
-
-if (!dateDepart) {
-
-dateDepart = new Date().toISOString();
-
-    localStorage.setItem("dateDepart", dateDepart);
-
-}
-
-
-// Calcul du nombre de jours
+// Date officielle de début du cadeau
+const dateDepart = new Date("2026-08-06T09:30:00+02:00");
 
 const aujourdHui = new Date();
-const debut = new Date(dateDepart);
+const difference = aujourdHui - dateDepart;
 
+let jourActuel = Math.floor(
+    difference / (1000 * 60 * 60 * 24)
+) + 1;
 
-const difference = aujourdHui - debut;
-
-
-let jourActuel =
-Math.floor(difference / (1000 * 60 * 60 * 24)) + 1;
-
+// Avant le lancement
+if (jourActuel < 1) {
+    jourActuel = 1;
+}
 
 // Maximum 365 jours
-
 if (jourActuel > 365) {
     jourActuel = 365;
 }
 
-
 // Cherche le message du jour
-
 const messageDuJour = messages.find(
     message => message.jour === jourActuel
 );
 
-
 // Affichage
-
 if (messageDuJour) {
-
     jourElement.innerHTML =
-    "Jour " + messageDuJour.jour + " ❤️";
-
+        "Jour " + messageDuJour.jour + " sur 365 ❤️";
 
     messageElement.innerHTML =
-    messageDuJour.texte;
-
+        messageDuJour.texte;
 }
-
 
 // Animation des cœurs
 
