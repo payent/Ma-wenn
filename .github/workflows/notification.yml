@@ -1,9 +1,8 @@
 name: Notification Maïwenn ❤️
 on:
   schedule:
-    - cron: "30 7 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
-
 jobs:
   envoyer-message:
     runs-on: ubuntu-latest
