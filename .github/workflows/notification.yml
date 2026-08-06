@@ -20,7 +20,7 @@ jobs:
           DEBUT=$(date -d "$DATE_DEBUT" +%s)
           echo "Heure GitHub : $(date)"
           echo "Début cadeau : $(date -d "$DATE_DEBUT")"
-          echo "jour=$JOUR" >> "$GITHUB_OUTPUT"
+         
           JOUR=$(( (MAINTENANT - DEBUT) / 86400 + 1 ))
           echo "Jour calculé : $JOUR"
 
@@ -42,9 +42,9 @@ jobs:
             echo "Aucun message trouvé pour le jour $JOUR"
             exit 0
           fi
-
           echo "texte=$MESSAGE" >> "$GITHUB_OUTPUT"
           echo "titre=$TITRE" >> "$GITHUB_OUTPUT"
+          echo "jour=$JOUR" >> "$GITHUB_OUTPUT"
       - name: Envoyer notification OneSignal
         env:
           ONESIGNAL_APP_ID: ...
@@ -52,7 +52,22 @@ jobs:
 
         run: |
           curl --request POST \
-          ...
+            --url https://api.onesignal.com/notifications \
+            --header "Content-Type: application/json" \
+            --header "Authorization: Key $ONESIGNAL_REST_API_KEY" \
+            --data '{
+              "app_id": "'"$ONESIGNAL_APP_ID"'",
+              "include_subscription_ids": [
+                "30999893-407b-41f8-a9b6-48d6a6b42507"
+              ],
+              "headings": {
+                "en": "'"${{ steps.message.outputs.titre }}"'"
+              },
+              "contents": {
+                "en": "'"${{ steps.message.outputs.texte }}"'"
+              },
+              "chrome_web_icon": "https://payent.github.io/Ma-wenn/icon.png"
+            }'
 
 
       - name: Enregistrer le jour envoyé
