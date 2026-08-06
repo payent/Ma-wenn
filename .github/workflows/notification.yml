@@ -47,8 +47,8 @@ jobs:
           echo "jour=$JOUR" >> "$GITHUB_OUTPUT"
       - name: Envoyer notification OneSignal
         env:
-          ONESIGNAL_APP_ID: ...
-          ONESIGNAL_REST_API_KEY: ...
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
 
         run: |
           curl --request POST \
